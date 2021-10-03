@@ -103,6 +103,17 @@ ${goto 10}${color1}${top name 5}${alignr 10}${color}${top cpu 5}%
 ${color4}${hr}${color}
 ${alignc}${color}GPU: ${color6}Intel UHD Graphics 620
 ${goto 10}${color}Pwr: ${color6}${execi 10 sensors amdgpu-pci-0100 | grep 'power1' | awk '{print $2,$3}'}${alignr 10}${color}Voltage: ${color6}${execi 10 sensors amdgpu-pci-0100 | grep 'vddgfx' | awk '{print $2,$3}'}
+#
+### Memory ###
+${color4}${hr}${color}
+${goto 10}${color}Current RAM Usage: ${alignr 10}${color6}${memperc}%
+${goto 10}${color}Processes: ${color6}${processes}${alignr 10}${color}Running: ${color6}${running_processes}
+${goto 15}${color5}${memgraph 30,220 fc8c3b c6396b -t}
+${goto 10}${color1}${top_mem name 1}${alignr 10}${color}${top_mem mem 1}%
+${goto 10}${color1}${top_mem name 2}${alignr 10}${color}${top_mem mem 2}%
+${goto 10}${color1}${top_mem name 3}${alignr 10}${color}${top_mem mem 3}%
+${goto 10}${color1}${top_mem name 4}${alignr 10}${color}${top_mem mem 4}%
+${goto 10}${color1}${top_mem name 5}${alignr 10}${color}${top_mem mem 5}%
 
 ### Old ###
 ${scroll 16 $nodename - $sysname $kernel on $machine | }
