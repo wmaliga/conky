@@ -48,7 +48,7 @@ conky.config = {
     gap_x = 15,
     gap_y = 40,
     minimum_height = 5,
-	minimum_width = 5,
+	minimum_width = 250,
     net_avg_samples = 2,
     no_buffers = true,
     out_to_console = false,
@@ -73,13 +73,31 @@ conky.config = {
 conky.text = [[
 ### Title ###
 ${goto 10}${font Noto:bold:size=10}${exec hostname}${alignr 10}${color2}${time %r}
+#
 ### Head ###
 ${color4}${hr}${color}
 ${goto 10}${font}Date:${color2}${alignr 10}${time %d %B %Y}${color}
 ${goto 10}${font}Host:${color2}${alignr 10}${exec hostname}${color}
 ${goto 10}${font}Kernel:${color2}${alignr 10}${kernel}${color}
 ${goto 10}${font}Uptime:${color2}${alignr 10}${uptime}${color}
+#
+### Processor ###
 ${color4}${hr}${color}
+${alignc}${color6}${font}i5-8250U CPU${color} @ ${color6}${freq_g}GHz${color}
+${alignc}Active Governor: ${color6}${execi 10 cat /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor}${color}
+${alignc}Current Voltage: ${color6}${execi 10 sensors ucsi_source_psy_USBC000:001-isa-0000 | grep 'in0' | awk '{print $2,$3}'}
+
+${goto 10}${color}C1: ${color2}${cpu cpu1}%${goto 70}${color1}${exec sensors | grep 'Core 0' | awk '{print $3}'}${goto 140}${color}C2: ${color2}${cpu cpu2}%${alignr 10}${color1}${exec sensors | grep 'Core 1' | awk '{print $3}'}
+${goto 10}${color5}${cpugraph cpu1 30,110 fc8c3b c6396b -t} ${alignr 10}${color5}${cpugraph cpu2 30,110 fc8c3b c6396b -t}
+${goto 10}${color}C3: ${color2}${cpu cpu3}%${goto 70}${color1}${exec sensors | grep 'Core 2' | awk '{print $3}'}${goto 140}${color}C4: ${color2}${cpu cpu4}%${alignr 10}${color1}${exec sensors | grep 'Core 3' | awk '{print $3}'}
+${goto 10}${color5}${cpugraph cpu3 30,110 fc8c3b c6396b -t} ${alignr 10}${color5}${cpugraph cpu4 30,110 fc8c3b c6396b -t}
+#
+${goto 10}${color}CPU load: ${alignr 10}${color6}${cpu cpu0}%
+${goto 10}${color1}${top name 1}${alignr 10}${color}${top cpu 1}%
+${goto 10}${color1}${top name 2}${alignr 10}${color}${top cpu 2}%
+${goto 10}${color1}${top name 3}${alignr 10}${color}${top cpu 3}%
+${goto 10}${color1}${top name 4}${alignr 10}${color}${top cpu 4}%
+${goto 10}${color1}${top name 5}${alignr 10}${color}${top cpu 5}%
 
 ### Old ###
 ${scroll 16 $nodename - $sysname $kernel on $machine | }
