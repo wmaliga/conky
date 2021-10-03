@@ -73,6 +73,13 @@ conky.config = {
 conky.text = [[
 ### Title ###
 ${goto 10}${font Noto:bold:size=10}${exec hostname}${alignr 10}${color2}${time %r}
+### Head ###
+${color4}${hr}${color}
+${goto 10}${font}Date:${color2}${alignr 10}${time %d %B %Y}${color}
+${goto 10}${font}Host:${color2}${alignr 10}${exec hostname}${color}
+${goto 10}${font}Kernel:${color2}${alignr 10}${kernel}${color}
+${goto 10}${font}Uptime:${color2}${alignr 10}${uptime}${color}
+${color4}${hr}${color}
 
 ### Old ###
 ${scroll 16 $nodename - $sysname $kernel on $machine | }
