@@ -72,14 +72,20 @@ conky.config = {
 
 conky.text = [[
 ### Title ###
-${goto 10}${font Noto:bold:size=10}${exec hostname}${alignr 10}${color2}${time %r}
+${goto 10}${font Noto:bold:size=10}${exec hostname}${alignr 10}${color2}${time %H:%M:%S}${font}
 #
 ### Head ###
 ${color4}${hr}${color}
-${goto 10}${font}Date:${color2}${alignr 10}${time %d %B %Y}${color}
-${goto 10}${font}Host:${color2}${alignr 10}${exec hostname}${color}
-${goto 10}${font}Kernel:${color2}${alignr 10}${kernel}${color}
-${goto 10}${font}Uptime:${color2}${alignr 10}${uptime}${color}
+${goto 10}${color}Date:${color2}${alignr 10}${time %d %B %Y}
+${goto 10}${color}Host:${color2}${alignr 10}${exec hostname}
+${goto 10}${color}Kernel:${color2}${alignr 10}${kernel}
+${goto 10}${color}Uptime:${color2}${alignr 10}${uptime}
+#
+### Battery ###
+${color4}${hr}${color}
+${goto 10}${color}Battery:${color2}${alignr 10}${battery}
+${goto 10}${color}Time:${color2}${alignr 10}${battery_time}
+${goto 10}${color}Percent:${goto 70}${battery_bar}
 #
 ### Processor ###
 ${color4}${hr}${color}
