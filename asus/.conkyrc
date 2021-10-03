@@ -71,6 +71,10 @@ conky.config = {
 }
 
 conky.text = [[
+### Title ###
+${goto 10}${font Noto:bold:size=10}${exec hostname}${alignr 10}${color2}${time %r}
+
+########## Old ##########
 ${scroll 16 $nodename - $sysname $kernel on $machine | }
 $hr
 ${color grey}Uptime:$color $uptime
