@@ -98,6 +98,15 @@ ${goto 10}${color1}${top name 2}${alignr 10}${color}${top cpu 2}%
 ${goto 10}${color1}${top name 3}${alignr 10}${color}${top cpu 3}%
 ${goto 10}${color1}${top name 4}${alignr 10}${color}${top cpu 4}%
 ${goto 10}${color1}${top name 5}${alignr 10}${color}${top cpu 5}%
+#
+### Graphic ###
+${color4}${hr}${color}
+${alignc}${color}GPU: ${color6}NVIDIA GeForce GTX 970
+${goto 10}${color}Pwr: ${color6}${execi 10 nvidia-smi --format=csv,noheader --query-gpu=power.draw}${alignr 10}${color}Max Pwr: ${color1}250.00 W
+${goto 10}${color}GPU Load: ${color2}${execi 10 nvidia-smi --format=csv,noheader --query-gpu=utilization.gpu}${alignr 10}${color}GPU VRAM: ${color2}${execi 10 nvidia-smi --format=csv,noheader --query-gpu=utilization.memory}
+${goto 10}${color5}${execigraph 1 "nvidia-smi --format=csv,noheader --query-gpu=utilization.gpu" 30,110 fc8c3b c6396b -t}${alignr 10}${color5}${execigraph 1 "nvidia-smi --format=csv,noheader --query-gpu=utilization.memory" 30,110 fc8c3b c6396b -t}
+${goto 10}${color}GPU: ${color2}${execi 10 nvidia-smi --format=csv,noheader --query-gpu=clocks.current.graphics}${alignr 10}${color}VRAM: ${color2}${execi 10 nvidia-smi --format=csv,noheader --query-gpu=clocks.current.memory}
+${goto 10}${color}Temp: ${color1}${execi 10 nvidia-smi --format=csv,noheader --query-gpu=temperature.gpu}°C${alignr 10}${color}Fan: ${color6}${execi 10 nvidia-smi --format=csv,noheader --query-gpu=fan.speed}
 
 ########## Old ##########
 ${scroll 16 $nodename - $sysname $kernel on $machine | }
