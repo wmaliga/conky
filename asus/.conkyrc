@@ -137,4 +137,7 @@ ${goto 10}${color5}${diskiograph_read /dev/sda 30,110 fc8c3b c6396b -t}${goto 14
 
 ${goto 10}${color6}/home ${alignr 10}${color2}${fs_used /home}${color} / ${color1}${fs_size /home}
 ${goto 10}${color}${fs_bar /home}
+
+${goto 10}${color6}/dev/dm-2 (swap) ${alignr 10}${color2}${swap}${color} / ${color1}${swapmax}
+${goto 10}${color}${swapbar}
 ]]
