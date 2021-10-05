@@ -127,6 +127,16 @@ ${goto 10}${color}External IP: ${alignr 10}${color6}${execi 60 curl ipinfo.io/ip
 ${goto 10}${color}Up: ${color2}${upspeed eno1}${goto 140}${color}Down: ${color2}${downspeed eno1}
 ${goto 10}${color}Total: ${color2}${totalup eno1}${goto 140}${color}Total: ${color2}${totaldown eno1}
 ${goto 10}${color5}${upspeedgraph eno1 30,110 fc8c3b c6396b -t}${goto 140}${color5}${downspeedgraph eno1 30,110 fc8c3b c6396b -t}
+#
+### Storage ###
+${color4}${hr}${color}
+${goto 10}${color}Device: ${alignr 10}${color6}/dev/sda
+
+${goto 10}${color}Read: ${color2}${diskio_read /dev/sda}${goto 140}${color}Write: ${color2}${diskio_write /dev/sda}
+${goto 10}${color5}${diskiograph_read /dev/sda 30,110 fc8c3b c6396b -t}${goto 140}${color5}${diskiograph_write /dev/sda 30,110 fc8c3b c6396b -t}
+
+${goto 10}${color6}/home ${alignr 10}${color2}${fs_used /home}${color} / ${color1}${fs_size /home}
+${goto 10}${color}${fs_bar /home}
 
 ########## Old ##########
 ${scroll 16 $nodename - $sysname $kernel on $machine | }
