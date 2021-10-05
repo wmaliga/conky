@@ -107,6 +107,17 @@ ${goto 10}${color}GPU Load: ${color2}${execi 10 nvidia-smi --format=csv,noheader
 ${goto 10}${color5}${execigraph 1 "nvidia-smi --format=csv,noheader --query-gpu=utilization.gpu" 30,110 fc8c3b c6396b -t}${alignr 10}${color5}${execigraph 1 "nvidia-smi --format=csv,noheader --query-gpu=utilization.memory" 30,110 fc8c3b c6396b -t}
 ${goto 10}${color}GPU: ${color2}${execi 10 nvidia-smi --format=csv,noheader --query-gpu=clocks.current.graphics}${alignr 10}${color}VRAM: ${color2}${execi 10 nvidia-smi --format=csv,noheader --query-gpu=clocks.current.memory}
 ${goto 10}${color}Temp: ${color1}${execi 10 nvidia-smi --format=csv,noheader --query-gpu=temperature.gpu}°C${alignr 10}${color}Fan: ${color6}${execi 10 nvidia-smi --format=csv,noheader --query-gpu=fan.speed}
+#
+### Memory ###
+${color4}${hr}${color}
+${goto 10}${color}Current RAM Usage: ${alignr 10}${color6}${memperc}%
+${goto 10}${color}Processes: ${color6}${processes}${alignr 10}${color}Running: ${color6}${running_processes}
+${goto 15}${color5}${memgraph 30,220 fc8c3b c6396b -t}
+${goto 10}${color1}${top_mem name 1}${alignr 10}${color}${top_mem mem 1}%
+${goto 10}${color1}${top_mem name 2}${alignr 10}${color}${top_mem mem 2}%
+${goto 10}${color1}${top_mem name 3}${alignr 10}${color}${top_mem mem 3}%
+${goto 10}${color1}${top_mem name 4}${alignr 10}${color}${top_mem mem 4}%
+${goto 10}${color1}${top_mem name 5}${alignr 10}${color}${top_mem mem 5}%
 
 ########## Old ##########
 ${scroll 16 $nodename - $sysname $kernel on $machine | }
