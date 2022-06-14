@@ -92,7 +92,7 @@ ${goto 10}${color}Percent:${goto 70}${battery_bar}
 ${color4}${hr}${color}
 ${alignc}${color6}${font}i5-8250U CPU${color} @ ${color6}${freq_g}GHz${color}
 ${alignc}Active Governor: ${color6}${execi 10 cat /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor}${color}
-${alignc}Current Voltage: ${color6}${execi 10 sensors ucsi_source_psy_USBC000:001-isa-0000 | grep 'in0' | awk '{print $2,$3}'}
+${alignc}Temp: ${color1}${execi 10 sensors thinkpad-isa-0000 | grep 'CPU' | awk '{print $2,$3}'}
 
 ${goto 10}${color}C1: ${color2}${cpu cpu1}%${goto 70}${color1}${exec sensors | grep 'Core 0' | awk '{print $3}'}${goto 140}${color}C2: ${color2}${cpu cpu2}%${alignr 10}${color1}${exec sensors | grep 'Core 1' | awk '{print $3}'}
 ${goto 10}${color5}${cpugraph cpu1 30,110 fc8c3b c6396b -t} ${alignr 10}${color5}${cpugraph cpu2 30,110 fc8c3b c6396b -t}
