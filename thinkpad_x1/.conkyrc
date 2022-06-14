@@ -109,7 +109,7 @@ ${goto 10}${color1}${top name 5}${alignr 10}${color}${top cpu 5}%
 ### Graphic ###
 ${color4}${hr}${color}
 ${alignc}${color}GPU: ${color6}Intel UHD Graphics 620
-${goto 10}${color}Pwr: ${color6}${execi 10 sensors amdgpu-pci-0100 | grep 'power1' | awk '{print $2,$3}'}${alignr 10}${color}Voltage: ${color6}${execi 10 sensors amdgpu-pci-0100 | grep 'vddgfx' | awk '{print $2,$3}'}
+#${goto 10}${color}Pwr: ${color6}${execi 10 sensors amdgpu-pci-0100 | grep 'power1' | awk '{print $2,$3}'}${alignr 10}${color}Voltage: ${color6}${execi 10 sensors amdgpu-pci-0100 | grep 'vddgfx' | awk '{print $2,$3}'}
 #
 ### Memory ###
 ${color4}${hr}${color}
